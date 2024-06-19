@@ -1,0 +1,6 @@
+---
+tags: [javascript]
+---
+
+# Symbol
+

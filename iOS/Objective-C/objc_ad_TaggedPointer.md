@@ -1,0 +1,7 @@
+---
+tags: [objc]
+---
+
+# Tagged Pointer
+
+
