@@ -262,6 +262,8 @@ e & f& \cdots & g
 \end{vmatrix}
 $$
 
+## 粗体 直体
+
 $$
 \bf A,\bf B^{\rm T}
 $$
