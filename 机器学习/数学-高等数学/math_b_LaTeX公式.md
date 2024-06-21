@@ -85,10 +85,10 @@ $$
 
 ****
 
-| 运算符 | 值 | 运算符 | 值 | 运算符 | 值 |
-| --- | --- | --- | --- | --- | --- |
-| $\infty$ | \infty | $\partial$ | \partial | $∂$ | ∂ |
-| $\nabla$ | \nabla | $\propto$ | \propto | $\degree$ | \degree |
+| 运算符      | 值      | 运算符        | 值        | 运算符       | 值       |
+| -------- | ------ | ---------- | -------- | --------- | ------- |
+| $\infty$ | \infty | $\partial$ | \partial | $∂$       | ∂       |
+| $\nabla$ | \nabla | $\propto$  | \propto  | $\degree$ | \degree |
 
 ****
 
