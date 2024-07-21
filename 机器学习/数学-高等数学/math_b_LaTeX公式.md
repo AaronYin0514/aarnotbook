@@ -70,7 +70,7 @@ $$
 
 ## 普通运算符
 
-| 运算符      | 值      | 运算符       | 值       | 运算符           | 值           | 运算符           | 值          |
+| 运算符   | 值     | 运算符    | 值      | 运算符        | 值          | 运算符        | 值         |
 | -------- | ------ | --------- | ------- | ------------- | ----------- | ------------- | ---------- |
 | $+$      | +      | $\le$     | \le     | $\subseteq$   | \subseteq   | $\mathbb N$   | \mathbb N  |
 | $-$      | -      | $\gg$     | \gg     | $\subsetneqq$ | \subsetneqq | $\mathbb Z_+$ | \mathbb Z  |
@@ -82,6 +82,7 @@ $$
 | $>$      | >      | $\cup$    | \cup    | $\therefore$  | \therefore  | $\ddots$      | \ddots     |
 | $<$      | <      | $\in$     | \in     | $\mathbb R$   | \mathbb R   | $,,$          | ,,         |
 | $\ge$    | \ge    | $\notin$  | \notin  | $\mathbb Q$   | \mathbb Q   | $\sim$        | \sim       |
+| $\odot$  | \odot  | $\oslash$ | \oslash |               |             |               |            |
 
 ****
 
