@@ -1,3 +1,9 @@
+---
+tags:
+  - pytorch
+  - flatten
+---
+
 ## 张量-展平-flatten
 
 `torch.flatten` 是 PyTorch 中用于将张量展平成一维的函数。它可以按指定的起始和结束维度将多维张量展平为一个单一的向量。
