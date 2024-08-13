@@ -1,12 +1,7 @@
 ## 希腊字母
 
 $$
-\delta,\lambda\\
-\Delta,\Lambda\\
-\Alpha,\Beta\\
-\phi,\varphi\\
-\epsilon,\varepsilon\\
-π
+\delta,\lambda,\Delta,\Lambda,\Alpha,\Beta,\phi,\varphi,\epsilon,\varepsilon,π
 $$
 
 希腊字母表
