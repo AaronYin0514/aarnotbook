@@ -48,6 +48,23 @@ str = "test%04d" % num
 print(str) # test0001
 ```
 
+### `f"xxx{name}xxx"`
+
+```python
+name = "Bob"
+city = "New York"
+message = f"Hello, my name is {name} and I live in {city}"
+print(message)
+```
+
+字符串中包含花括号，使用**双重花括号**
+
+```python
+name = "Alice"
+message = f"My name is {{name}}."
+print(message)  # 输出：My name is {name}.
+```
+
 ## 字符串运算
 
 ### +
