@@ -5,8 +5,10 @@ tags:
 ---
 # Embedding
 
-`nn.Embedding` 是 PyTorch 中用于查找表操作的一种层（layer）。它通常用于自然语言处理（NLP）中的词嵌入（word embeddings），将离散的词（或其他符号）映射到稠密的向量空间中。
+![](embedding001.jpg)
 
+- 将离散类别映射到稠密向量空间(保存了固定字典和大小的简单查找表)
+- 能够捕捉单词之间的语义关系
 ## `nn.Embedding` 的工作原理
 
 `nn.Embedding` 本质上是一个查找表。给定一个词汇表中的索引序列，它会返回相应的嵌入向量。
@@ -33,7 +35,7 @@ class torch.nn.Embedding(
 - **`num_embeddings`**: `int`，词汇表的大小，即嵌入矩阵的行数。这通常是输入数据中索引的最大值加一。例如，如果你的词汇表中有 10,000 个词，那么 `num_embeddings` 通常设置为 10,000。
 - **`embedding_dim`**: `int`，每个嵌入向量的维度，决定了输出向量的长度。例如，如果你希望每个词映射到 300 维的向量空间，则 `embedding_dim` 设置为 300。
 
-可选参数：
+不常用参数：
 
 - **`padding_idx`**: `Optional[int]`，可选参数，指定输入中的某个索引（通常是填充标记的索引），它的嵌入向量会初始化为全零，并且在训练过程中保持不变。
 - **`max_norm`**: `Optional[float]`，可选参数，如果指定了这个值，嵌入向量的范数将被裁剪到 `max_norm` 之下。
@@ -50,28 +52,71 @@ class torch.nn.Embedding(
 
 ```python
 import torch
-import torch.nn as nn
+from torch import nn
 
 # 创建一个Embedding层
-embedding = nn.Embedding(num_embeddings=10, embedding_dim=3)
+# 定义一个具有5个单词，维度为3的查询矩阵
+embedding = nn.Embedding(5, 3)
+print('----- embedding.weight -----\n', embedding.weight)
 
 # 输入一个索引序列
-input_indices = torch.tensor([1, 2, 3, 4])
-
+output = torch.tensor([[0, 2, 0, 1], [1, 3, 4, 4]]) # shape (2, 4)
+print('----- 索引序列 ---------\n', output)
 # 获取对应的嵌入向量
-output = embedding(input_indices)
-
-print(output)
+output = embedding(output) # shape (2, 4, 3) 增加的3，是因为查询向量的维度为3
+print('----- output.shape ---------\n', output.shape)
+print('----- output ---------------\n', output)
 ```
 
 **输出**（取决于随机初始化的权重）：
 
 ```
-tensor([[-0.3270, -0.3005, -0.1817],
-        [ 0.1140, -0.5895,  0.1690],
-        [-0.2668,  0.0393, -0.4674],
-        [ 0.5925, -0.1569, -0.0128]], grad_fn=<EmbeddingBackward>)
+----- embedding.weight -----
+ Parameter containing:
+tensor([[ 1.4455,  1.9476, -0.5451],
+        [ 0.1568,  1.6262, -0.1837],
+        [ 1.6919, -0.7291, -0.5700],
+        [ 0.2326, -1.0678, -0.5664],
+        [-2.0841,  0.2240,  0.8624]], requires_grad=True)
+----- 索引序列 ---------
+ tensor([[0, 2, 0, 1],
+        [1, 3, 4, 4]])
+----- output.shape ---------
+ torch.Size([2, 4, 3])
+----- output ---------------
+ tensor([[[ 1.4455,  1.9476, -0.5451],
+         [ 1.6919, -0.7291, -0.5700],
+         [ 1.4455,  1.9476, -0.5451],
+         [ 0.1568,  1.6262, -0.1837]],
+
+        [[ 0.1568,  1.6262, -0.1837],
+         [ 0.2326, -1.0678, -0.5664],
+         [-2.0841,  0.2240,  0.8624],
+         [-2.0841,  0.2240,  0.8624]]], grad_fn=<EmbeddingBackward0>)
 ```
+
+**解释1** 查找
+
+![](embedding-workflow.png)
+
+**解释2**：embedding前向计算，原理的简单解释（可解释shape大小）
+
+1. 如果我们有5000个单词的词典，`embedding_dim`设置为128（超参数），那么就生成了一个size为`(5000, 128)`的词典矩阵
+2. 如果查找其中4个词，对这4个词做one-hot编码，则`shape`为`(4, 5000)`
+3. 用这个张量与原词典张量相乘，就得到查找结果，`shape`为`(4, 128)`
+
+
+## One-Hot 与 Embedding
+
+**One-Hot**:
+
+- 适用于类别***较少***
+- 类别之间***没有***潜在关系的任务
+
+**Embedding**:
+
+- 适合处理***大量***类别
+- 类别之间***有***潜在关系的任务
 
 ### 应用场景
 
