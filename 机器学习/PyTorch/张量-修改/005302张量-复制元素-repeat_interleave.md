@@ -1,6 +1,10 @@
 ---
-tags: pytorch repeat_interleave
+tags:
+  - pytorch
+  - repeat_interleave
+  - tensor
 ---
+## 张量-复制元素-repeat_interleave
 
 `torch.repeat_interleave` 是 PyTorch 中的一个函数，用于沿指定维度重复张量中的元素。这个函数可以根据指定的次数来复制每个元素，生成一个新的张量。
 
