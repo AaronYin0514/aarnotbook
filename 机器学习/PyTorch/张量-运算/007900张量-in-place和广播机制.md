@@ -2,9 +2,9 @@
 tags: python ai pytorch 
 ---
 
-# in-place和广播机制
+## in-place和广播机制
 
-## in-place
+### in-place
 
 “就地”操作，即不允许使用临时变量，也称为原位操作。例如
 
