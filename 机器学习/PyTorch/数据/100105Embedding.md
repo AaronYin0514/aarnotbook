@@ -3,17 +3,17 @@ tags:
   - pytorch
   - embed
 ---
-# Embedding
+## Embedding
 
 ![](embedding001.jpg)
 
 - 将离散类别映射到稠密向量空间(保存了固定字典和大小的简单查找表)
 - 能够捕捉单词之间的语义关系
-## `nn.Embedding` 的工作原理
+### `nn.Embedding` 的工作原理
 
 `nn.Embedding` 本质上是一个查找表。给定一个词汇表中的索引序列，它会返回相应的嵌入向量。
 
-## 函数签名
+**函数签名**
 
 ```python
 class torch.nn.Embedding(
@@ -28,7 +28,7 @@ class torch.nn.Embedding(
 )
 ```
 
-### 参数说明：
+**参数说明**
 
 ‼️关键参数：
 
@@ -44,11 +44,11 @@ class torch.nn.Embedding(
 - **`sparse`**: `bool`，默认为 `False`。如果设为 `True`，则会使用稀疏梯度，这对非常大的嵌入字典可能是有益的，因为稀疏更新可以节省内存。
 - **`_weight`**: `Optional[torch.Tensor]`，可选参数，指定初始权重。如果指定了 `_weight`，`num_embeddings` 和 `embedding_dim` 的值会被忽略，直接使用传入的 `_weight` 作为权重矩阵。
 
-### 返回值：
+**返回值**
 
 - 返回一个 `torch.nn.Embedding` 模块对象，用于将输入的整数索引映射到嵌入向量。
 
-### 示例：
+**示例**
 
 ```python
 import torch
@@ -68,7 +68,7 @@ print('----- output.shape ---------\n', output.shape)
 print('----- output ---------------\n', output)
 ```
 
-**输出**（取决于随机初始化的权重）：
+输出（取决于随机初始化的权重）：
 
 ```
 ----- embedding.weight -----
@@ -106,7 +106,7 @@ tensor([[ 1.4455,  1.9476, -0.5451],
 3. 用这个张量与原词典张量相乘，就得到查找结果，`shape`为`(4, 128)`
 
 
-## One-Hot 与 Embedding
+### One-Hot 与 Embedding
 
 **One-Hot**:
 
