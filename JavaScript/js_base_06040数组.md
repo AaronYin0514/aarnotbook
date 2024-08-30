@@ -239,8 +239,42 @@ console.log(result) // [2, 4]
 
 ## splice
 
-```javascript
+splice() 方法用于添加、删除或替换数组的元素,并返回被删除的元素。该方法会直接修改原始数组。
 
+**语法**
+
+```js
+array.splice(start, deleteCount, item1, item2, ...)
+```
+
+- `start`: 必需。规定从何处添加/删除元素。该参数是数组元素的下标。如果是负值,则从数组结尾处开始计数。
+- `deleteCount`: 可选。要删除的元素个数。如果设置为 0,则不删除元素。
+- `item1, item2, ...`: 可选。要添加到数组的新元素。
+
+**使用示例**
+
+添加元素：在索引 2 的位置添加 "lemon" 和 "pear"。
+
+```js
+let fruits = ['apple', 'banana', 'orange'];
+fruits.splice(2, 0, 'lemon', 'pear');
+// fruits 现在是 ["apple", "banana", "lemon", "pear", "orange"]
+```
+
+删除元素：从索引 1 开始删除 1 个元素。
+
+```js
+let fruits = ['apple', 'banana', 'orange', 'lemon'];
+fruits.splice(1, 1);
+// fruits 现在是 ["apple", "orange", "lemon"]
+```
+
+替换元素：从索引 1 开始删除 1 个元素,并插入 "pear"。
+
+```js
+let fruits = ['apple', 'banana', 'orange'];
+fruits.splice(1, 1, 'pear');
+// fruits 现在是 ["apple", "pear", "orange"]
 ```
 
 ## 查找`find`
