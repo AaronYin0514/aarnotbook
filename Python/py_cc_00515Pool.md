@@ -67,6 +67,31 @@ p = Pool(5)
 
 由于`Pool`的默认大小是CPU的核数，如果你不幸拥有8核CPU，你要提交至少9个子进程才能看到上面的等待效果。
 
+## 返回值
+
+`apply_async()`本身就可以返回被进程调用的函数的返回值。上一个创建多个子进程的代码中，如果在函数`func`中返回一个值，那么`pool.apply_async(func, (msg, ))`的结果就是返回pool中所有进程的值的对象（注意是对象，不是值本身）。
+
+```python
+import multiprocessing
+import time
+  
+def func(msg):
+    return multiprocessing.current_process().name + '-' + msg
+  
+if __name__ == "__main__":
+    pool = multiprocessing.Pool(processes=4) # 创建4个进程
+    results = []
+    for i in xrange(10):
+        msg = "hello %d" %(i)
+        results.append(pool.apply_async(func, (msg, )))
+    pool.close() # 关闭进程池，表示不能再往进程池中添加进程，需要在join之前调用
+    pool.join() # 等待进程池中的所有进程执行完毕
+    print ("Sub-process(es) done.")
+  
+    for res in results:
+        print (res.get())
+```
+
 ## 进程间通讯
 
 ### Queue
