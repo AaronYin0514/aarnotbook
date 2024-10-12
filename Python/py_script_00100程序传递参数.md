@@ -26,7 +26,7 @@ pytho3 rest.py 1 2 a b
 
 ```python
 import argparse
-Atyppa
+
 parser = argparse.ArgumentParser(description='manual to this script')
 #parser.add_argument('-n', '--name', type=str, required=True, help="工作文件夹标号，例如242")
 parser.add_argument('--name', type=str, default='张三')
