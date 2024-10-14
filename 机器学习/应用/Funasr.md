@@ -4,6 +4,8 @@
 
 ```shell
 pip3 install -U funasr
+# 下载模型用
+pip3 install modelscope
 ```
 
 ### 非实时语音识别
