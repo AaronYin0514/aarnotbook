@@ -10,6 +10,7 @@ https://huggingface.co/mlx-community
 
 https://blog.csdn.net/weixin_40425640/article/details/140682206
 
+https://github.com/datawhalechina/handy-ollama/blob/main/docs/C3/1.%20%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AF%BC%E5%85%A5%E6%A8%A1%E5%9E%8B.md
 
 
 
