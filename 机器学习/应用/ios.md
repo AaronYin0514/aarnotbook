@@ -12,4 +12,8 @@ https://blog.csdn.net/weixin_40425640/article/details/140682206
 
 
 
+获取模型相关文件
+https://huggingface.co/api/models/mlx-community/Meta-Llama-3.1-8B-Instruct-4bit
+
+
 
