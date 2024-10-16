@@ -6,6 +6,12 @@ tags: mac, npm
 
 ## npm常用命令
 
+### mac权限问题
+
+```shell
+sudo chown -R 501:20 "~/.npm"
+```
+
 ### 初始化项目
 
 ```shell
