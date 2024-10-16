@@ -14,10 +14,19 @@ cd project-name
 ```
 
 ## 安装Electron
+
 最好使用全局模式VPN安装electron。网络原因可能导致安装Electron失败，设置国内Electron镜像；
 
 ```shell
-npm config set electron_mirror "https://npm.taobao.org/mirrors/electron/"
+npm config set electron_mirror "https://npmmirror.com/mirrors/electron/"
+```
+
+如果报错，可以在`~/.npmrc`配置中直接修改
+
+```shell
+...
+electron_mirro=https://npmmirror.com/mirrors/electron/
+...
 ```
 
 安装Electron
